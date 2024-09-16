@@ -1,0 +1,479 @@
+.nav {
+  margin-right: 12px;
+  width: calc(100% - 290px);
+  max-width: 848px;
+  margin: 0 12px 0 auto;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-links {
+      display: flex;
+      align-items: center;
+      li {
+        margin-right: 40px;
+        &:last-child {
+          margin: 0;
+        }
+        a,
+        button {
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 20px;
+          background-color: transparent;
+          cursor: pointer;
+          transition: 0.3s ease;
+          font-family: $mainFont;
+          color: $main;
+          &:hover {
+            opacity: 1;
+            color: $primary;
+            span {
+              &::before {
+                width: 100%;
+              }
+            }
+          }
+          &.current {
+            position: relative;
+            span {
+              &::after {
+                position: absolute;
+                top: calc(100% + 2px);
+                left: 50%;
+                height: 6px;
+                width: 60px;
+                content: "";
+                background: url("../images/icons/line-primary.svg") no-repeat
+                  center;
+                background-size: contain;
+                transform: translateX(-50%);
+                transition: 0.3s ease;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+      span {
+        position: relative;
+        &::before {
+          position: absolute;
+          top: calc(100% + 2px);
+          left: 0;
+          height: 6px;
+          width: 0;
+          content: "";
+          background: url("../images/icons/line-blue.svg") no-repeat center;
+          background-size: cover;
+          transition: 0.3s ease;
+        }
+      }
+    }
+    &-phone {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      color: $main;
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+      &:hover {
+        opacity: 1;
+        color: $primary;
+      }
+      svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+    }
+    &-foot {
+      width: 30%;
+      max-width: 245px;
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+.drop {
+  position: relative;
+  &:hover {
+    .dropMenu {
+      opacity: 1;
+      visibility: visible;
+    }
+    & > a,
+    button {
+      &::before {
+        transform: translateY(-20%) rotate(-45deg);
+        border-color: $main;
+      }
+      span {
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  }
+  & > a,
+  button {
+    position: relative;
+    padding: 0 15px 0 0;
+    &::before {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 7px;
+      height: 7px;
+      content: "";
+      transform: translateY(-50%) rotate(135deg);
+      border-top: 2px solid #84929d;
+      border-right: 2px solid #84929d;
+      transition: 0.3s ease;
+    }
+    span {
+      position: relative;
+      z-index: 2;
+      &::after {
+        position: absolute;
+        top: calc(100% + 2px);
+        left: 50%;
+        height: 6px;
+        width: 60px;
+        content: "";
+        background: url("../images/icons/line-primary.svg") no-repeat center;
+        background-size: contain;
+        transform: translateX(-50%);
+        transition: 0.3s ease;
+        opacity: 0;
+      }
+    }
+  }
+  &Menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    min-width: 120px;
+    left: 50%;
+    background: $white;
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0px 22px 24px rgba(0, 0, 0, 0.04),
+      0px 6.63236px 7.2353px rgba(0, 0, 0, 0.03),
+      0px 2.75474px 3.00517px rgba(0, 0, 0, 0.02),
+      0px 0.996336px 1.08691px rgba(0, 0, 0, 0.01);
+    border-radius: 4px;
+    transition: 0.3s ease;
+    z-index: 1;
+    a {
+      width: 100%;
+      line-height: 100%;
+      white-space: nowrap;
+      padding: 8px;
+      text-align: center;
+      &:hover {
+        opacity: 1;
+        background-color: #f0f0f0;
+        color: $main !important;
+      }
+    }
+  }
+}
+.burger {
+  display: none;
+}
+// 1180px
+@mixin nav-xlg-xxlg {
+  .nav {
+    width: calc(100% - 275px);
+    max-width: 725px;
+    margin-right: 8px;
+    &__inner {
+      &-links {
+        li {
+          margin-right: 20px;
+        }
+      }
+      &-phone {
+        svg {
+          width: 20px;
+          height: 20px;
+          margin-right: 5px;
+        }
+      }
+      &-foot {
+        width: 31%;
+      }
+    }
+  }
+}
+// 1024px
+@mixin nav-lg-xlg {
+  body.active {
+    overflow: hidden;
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: unset;
+    margin: 0;
+    height: 100%;
+    z-index: 9;
+    background: rgba($color: #000000, $alpha: 0.4);
+    transform: translateX(-100%);
+    @include transition;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 64px;
+      content: "";
+      background-color: $white;
+      z-index: 2;
+      pointer-events: none;
+    }
+    &.active {
+      @include transformReset;
+    }
+    &__inner {
+      flex-direction: column;
+      position: absolute;
+      justify-content: unset;
+      align-items: center;
+      box-sizing: border-box;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: 280px;
+      z-index: 1;
+      padding: 84px 0 20px;
+      height: 100%;
+      overflow-y: auto;
+      background: $white;
+      &-links {
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        li {
+          margin: 0;
+          width: 100%;
+          display: flex;
+          & > a,
+          button {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 600;
+            padding: 10px 30px;
+            width: 100%;
+            text-align: start;
+            &:hover {
+              background-color: $primary;
+              color: $white;
+              span {
+                &::before {
+                  border-color: $white;
+                  width: 7px;
+                }
+              }
+            }
+            &.current {
+              color: $primary;
+              span {
+                &::after {
+                  display: none;
+                }
+              }
+            }
+            span {
+              padding: 0;
+              &::before {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      &-phone {
+        width: 100%;
+        margin: 0 0 28px 0;
+        svg {
+          width: 24px;
+          height: 24px;
+          margin-right: 8px;
+        }
+      }
+      &-foot {
+        width: 100%;
+        max-width: unset;
+        padding: 0 30px;
+        flex-direction: column;
+        margin: auto 0 0 0;
+        .button {
+          width: 100%;
+          padding: 6px 20px;
+        }
+      }
+    }
+  }
+  .drop {
+    display: flex;
+    flex-direction: column;
+    & > a,
+    button {
+      &.current {
+        background-color: unset !important;
+        color: $primary !important;
+      }
+      &.active {
+        background-color: $primary !important;
+        color: $white !important;
+        span {
+          &::before {
+            border-color: $white;
+            transform: translateY(-20%) rotate(-45deg);
+          }
+        }
+      }
+
+      &::before {
+        display: none;
+      }
+      span {
+        position: relative;
+        padding: 0 15px 0 0 !important;
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: unset;
+          opacity: 1;
+          right: 0;
+          width: 7px !important;
+          height: 7px !important;
+          content: "";
+          transform: translateY(-50%) rotate(135deg);
+          border-top: 2px solid #84929d;
+          border-right: 2px solid #84929d;
+          transition: 0.3s ease;
+          display: block !important;
+          background: unset;
+        }
+        &::after {
+          display: none;
+        }
+      }
+    }
+    &Menu {
+      position: static;
+      transform: translate(0);
+      max-height: 0;
+      transition: 0.3s ease;
+      overflow: hidden;
+      min-width: unset;
+      width: 100%;
+      background-color: unset;
+      visibility: visible;
+      box-shadow: unset;
+      border-radius: unset;
+      padding: 0;
+      &.active {
+        opacity: 1;
+        max-height: 300px;
+      }
+      a {
+        text-align: start;
+        padding: 8px 30px;
+      }
+    }
+  }
+  .burger {
+    display: block;
+    cursor: pointer;
+    @include transition;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    z-index: 10;
+    &:hover {
+      opacity: 0.8;
+    }
+    &::before {
+      top: 20%;
+      width: 80%;
+      height: 2px;
+      border-radius: 3px;
+      background-color: $main;
+      transition: all 0.3s ease;
+      content: "";
+      position: absolute;
+      left: 50%;
+      @include transformX;
+    }
+    span {
+      top: 50%;
+      width: 80%;
+      height: 2px;
+      border-radius: 3px;
+      background-color: $main;
+      transition: all 0.3s ease;
+      position: absolute;
+      left: 50%;
+      @include transform;
+      @include transition;
+    }
+    &::after {
+      bottom: 20%;
+      width: 80%;
+      height: 2px;
+      border-radius: 3px;
+      background-color: $main;
+      transition: all 0.3s ease;
+      content: "";
+      position: absolute;
+      left: 50%;
+      @include transformX;
+    }
+    &.active {
+      &::before {
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%) rotate(45deg);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      span {
+        opacity: 0;
+      }
+      &::after {
+        bottom: 50%;
+        -webkit-transform: translate(-50%, 50%) rotate(-45deg);
+        transform: translate(-50%, 50%) rotate(-45deg);
+      }
+    }
+  }
+}
+// 750px
+@mixin nav-sm-md {
+  .nav {
+    &__inner {
+      &-links {
+        li {
+          & > a,
+          button {
+            padding: 10px 20px;
+          }
+        }
+      }
+      &-foot {
+        padding: 0 20px;
+      }
+    }
+  }
+}

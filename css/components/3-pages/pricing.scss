@@ -1,0 +1,609 @@
+.plan {
+  position: relative;
+  padding: 68px 0 116px;
+  color: $white;
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom;
+      &.mob {
+        display: none;
+      }
+    }
+  }
+  &__inner {
+    &-title {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    h1 {
+      margin-bottom: 28px;
+      span {
+        color: $yellow;
+      }
+    }
+    .input {
+      &Form {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+// 1180px
+@mixin plan-xlg-xxlg {
+  .plan {
+    padding: 50px 0 80px;
+    &__inner {
+      h1 {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+// 930px
+@mixin plan-md-lg {
+  .plan {
+    padding: 35px 0 60px;
+    &__inner {
+      &-title {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+// 540px
+@mixin plan-xsm-sm {
+  .plan {
+    padding: 24px 0 40px;
+    &__bg {
+      img {
+        display: none;
+        &.mob {
+          display: block;
+        }
+      }
+    }
+    &__inner {
+      &-title {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+.pricing {
+  padding: 60px 0;
+  &__inner {
+    &-title {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+    &-row {
+      display: none;
+      justify-content: space-between;
+      &.active {
+        display: flex;
+        animation: fadeIn 0.5s ease;
+      }
+    }
+    &-foot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 32px;
+      text-align: center;
+      p,
+      h4 {
+        width: 100%;
+      }
+      p {
+        margin-bottom: 40px;
+      }
+      h4 {
+        margin-bottom: 28px;
+      }
+      .button {
+        padding: 10px 38px;
+      }
+    }
+    h2 {
+      margin-bottom: 18px;
+    }
+  }
+  &Check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &.active {
+      h5 {
+        opacity: 1;
+        &:last-child {
+          opacity: 0.5;
+        }
+      }
+    }
+    &__box {
+      width: 40px;
+      height: 24px;
+      margin: 0 20px;
+      position: relative;
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 2;
+        cursor: pointer;
+        &:checked ~ span {
+          background-color: $primary;
+          &::before {
+            transform: translate(-16px, -50%);
+          }
+        }
+      }
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primaryDark;
+        transition: 0.3s ease;
+        border-radius: 24px;
+        &::before {
+          position: absolute;
+          top: 50%;
+          right: 2px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: $white;
+          transition: 0.3s ease;
+          content: "";
+          transform: translateY(-50%);
+        }
+      }
+    }
+    h5 {
+      transition: 0.3s ease;
+      opacity: 0.5;
+      &:last-child {
+        opacity: 1;
+      }
+    }
+  }
+  &Card {
+    width: calc(33.3% - 12px);
+    max-width: 360px;
+    position: relative;
+    display: flex;
+    &.uniq {
+      border-color: $primary;
+      .pricingCard {
+        &__inner {
+          border-color: $primary;
+        }
+      }
+    }
+    &__overlay {
+      position: absolute;
+      top: -32px;
+      left: 0;
+      background-color: $primary;
+      border-radius: 12px;
+      padding: 6px 12px 26px;
+      width: 100%;
+      color: $white;
+    }
+    &__inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background-color: $white;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid $blue;
+    }
+    &__head {
+      padding: 32px 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      h2 {
+        margin-bottom: 12px;
+      }
+      & > p {
+        margin-bottom: 32px;
+        min-height: 60px;
+      }
+    }
+    &__price {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+      &-row {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 4px;
+        h3 {
+          line-height: 100%;
+        }
+        h5 {
+          opacity: 0.5;
+          margin: 0 0 4px 4px;
+        }
+      }
+      p {
+        opacity: 0.5;
+      }
+    }
+    &__arrow {
+      display: none;
+    }
+    &__body {
+      padding: 12px;
+      position: relative;
+      z-index: 2;
+      margin: auto 0 0 0;
+      &-inner {
+        background: rgba(157, 210, 248, 0.33);
+        border-radius: 8px;
+        padding: 20px 28px;
+      }
+      h5 {
+        margin-bottom: 12px;
+      }
+      ul {
+        li {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 12px;
+          &:last-child {
+            margin: 0;
+          }
+          span {
+            width: 13px;
+            height: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px 12px 0 0;
+            img {
+              width: 100%;
+            }
+          }
+          p {
+            width: calc(100% - 25px);
+          }
+        }
+      }
+    }
+  }
+}
+// 1180px
+@mixin pricing-xlg-xxlg {
+  .pricing {
+    padding: 50px 0;
+    &Card {
+      width: calc(33.3% - 8px);
+      &__head {
+        padding: 20px 28px 10px;
+        & > p {
+          margin-bottom: 20px;
+        }
+      }
+      &__body {
+        &-inner {
+          padding: 16px;
+        }
+      }
+    }
+  }
+}
+// 930px
+@mixin pricing-md-lg {
+  .pricing {
+    padding: 32px 0;
+    &__inner {
+      &-title {
+        margin-bottom: 28px;
+      }
+      &-row {
+        flex-direction: column;
+      }
+      &-foot {
+        padding-top: 20px;
+        p {
+          margin-bottom: 32px;
+        }
+        h4 {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    &Card {
+      width: 100%;
+      max-width: unset;
+      padding: 0;
+      margin-bottom: 12px;
+      &.uniq {
+        padding-top: 32px;
+      }
+      &:last-child {
+        margin: 0;
+      }
+      &__overlay {
+        top: 0;
+      }
+      &__head {
+        flex-direction: row;
+        align-items: center;
+        padding: 12px;
+        position: relative;
+        &.active {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 20px 24px 13px 24px;
+          .pricingCard {
+            &__price {
+              margin-bottom: 25px;
+            }
+            &__arrow {
+              top: 26px;
+              img {
+                transform: scaleY(-1);
+              }
+            }
+          }
+          h2 {
+            font-weight: 800;
+            font-size: 22px;
+            line-height: 28px;
+            height: unset;
+            width: unset;
+            background: unset;
+            border-radius: unset;
+            margin: 0 0 8px 0;
+          }
+          & > p {
+            display: block;
+          }
+          .button {
+            display: flex;
+          }
+        }
+        h2 {
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: 600;
+          width: 110px;
+          height: 64px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: rgba(157, 210, 248, 0.33);
+          border-radius: 8px;
+          margin: 0 12px 0 0;
+        }
+        & > p {
+          display: none;
+          min-height: unset;
+          margin-bottom: 20px;
+        }
+        .button {
+          width: 100%;
+          display: none;
+        }
+      }
+      &__price {
+        margin: 0;
+      }
+      &__arrow {
+        position: absolute;
+        top: 36px;
+        right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 16px;
+        height: 16px;
+        img {
+          width: 100%;
+          transition: 0.3s ease;
+        }
+      }
+      &__body {
+        max-height: 0;
+        opacity: 0;
+        transition: 0.4s ease;
+        overflow: hidden;
+        padding: 0 12px;
+        &-inner {
+          padding: 12px;
+        }
+        &.active {
+          max-height: 400px;
+          opacity: 1;
+          padding: 12px;
+        }
+      }
+    }
+  }
+}
+// 540px
+@mixin pricing-xsm-sm {
+  .pricing {
+    &__inner {
+      &-foot {
+        padding-top: 12px;
+        .button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.campaign {
+  &__inner {
+    &-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    &-row {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &Item {
+    width: calc(50% - 10px);
+    max-width: 560px;
+    padding: 32px 40px;
+    background: #f0f0f0;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__tag {
+      position: absolute;
+      left: 32px;
+      top: 0;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 16px;
+      color: $white;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2px 8px;
+      transform: translateY(-50%);
+      z-index: 2;
+      border-radius: 20px;
+      background-color: $primary;
+    }
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    &__price {
+      display: flex;
+      align-items: flex-end;
+      h4 {
+        line-height: 100%;
+        margin-right: 4px;
+      }
+      h5 {
+        opacity: 0.5;
+      }
+    }
+    &__foot {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      p {
+        width: calc(100% - 65px);
+        max-width: 396px;
+      }
+    }
+    &__link {
+      color: $primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      background-color: $white;
+      width: 48px;
+      height: 32px;
+      &:hover {
+        opacity: 1;
+        background-color: $primary;
+        color: $white;
+      }
+      svg {
+        width: 14px;
+        height: 10px;
+      }
+    }
+  }
+}
+// 1024px
+@mixin campaign-lg-xlg {
+  .campaign {
+    &Item {
+      width: calc(50% - 8px);
+      padding: 25px 20px;
+      &__row {
+        margin-bottom: 20px;
+      }
+      &__tag {
+        left: 20px;
+      }
+    }
+  }
+}
+// 930px
+@mixin campaign-md-lg {
+  .campaign {
+    &__inner {
+      &-title {
+        margin-bottom: 32px;
+      }
+      &-row {
+        flex-direction: column;
+      }
+    }
+    &Item {
+      width: 100%;
+      max-width: unset;
+      margin-bottom: 24px;
+      padding: 30px;
+      &:last-child {
+        margin: 0;
+      }
+      &__tag {
+        left: 30px;
+      }
+      &__foot {
+        p {
+          max-width: unset;
+        }
+      }
+    }
+  }
+}
+// 540px
+@mixin campaign-xsm-sm {
+  .campaign {
+    &Item {
+      padding: 22px 20px 20px 20px;
+      &__tag {
+        left: 12px;
+      }
+      &__row {
+        margin-bottom: 12px;
+      }
+      &__foot {
+        p {
+          width: calc(100% - 56px);
+        }
+      }
+    }
+  }
+}

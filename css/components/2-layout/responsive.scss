@@ -1,0 +1,256 @@
+// 1450px
+@include xxxxlg-xxxxxlg {
+  // @include hero-xxxxlg-xxxxxlg;
+}
+// 1380px
+@include xxxlg-xxxxlg {
+  @include hero-xxxlg-xxxxlg;
+}
+// 1250px
+@include xlg-xxlg-extra {
+  @include hero-xlg-xxlg-extra;
+}
+// 1180px
+@include xlg-xxlg {
+  .auto__container {
+    padding: 0 30px;
+  }
+  h1 {
+    font-size: 44px;
+  }
+  h2 {
+    &.big {
+      font-size: 44px;
+    }
+  }
+  h3 {
+    font-size: 44px;
+  }
+  .quote {
+    padding: 30px 40px;
+    &Profile {
+      &__avatar {
+        margin-right: 20px;
+      }
+    }
+    &Content {
+      width: calc(100% - 250px);
+    }
+  }
+  @include header-xlg-xxlg;
+  @include nav-xlg-xxlg;
+  @include hero-xlg-xxlg;
+  @include features-xlg-xxlg;
+  @include join-xlg-xxlg;
+  // pricing
+  @include plan-xlg-xxlg;
+  @include pricing-xlg-xxlg;
+  // features
+  @include service-xlg-xxlg;
+  @include manage-xlg-xxlg;
+  @include field-xlg-xxlg;
+  @include resource-xlg-xxlg;
+}
+// 1024px
+@include lg-xlg {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    &.big {
+      font-size: 40px;
+    }
+  }
+  h3 {
+    font-size: 40px;
+  }
+  .main {
+    padding-top: 64px;
+  }
+  @include header-lg-xlg;
+  @include nav-lg-xlg;
+  @include hero-lg-xlg;
+  @include footer-lg-xlg;
+  // pricing
+  @include campaign-lg-xlg;
+}
+// 930px
+@include md-lg {
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 24px;
+    &.big {
+      font-size: 36px;
+    }
+  }
+  h3 {
+    font-size: 36px;
+  }
+  .quote {
+    padding: 20px;
+    &Content {
+      width: calc(100% - 240px);
+    }
+  }
+  @include hero-md-lg;
+  @include count-md-lg;
+  @include features-md-lg;
+  @include banner-md-lg;
+  @include support-md-lg;
+  @include join-md-lg;
+  @include footer-md-lg;
+
+  // pricing
+  @include plan-md-lg;
+  @include pricing-md-lg;
+  @include campaign-md-lg;
+  @include faq-md-lg;
+
+  // features
+  @include service-md-lg;
+  @include manage-md-lg;
+  @include field-md-lg;
+}
+// 750px
+@include sm-md {
+  .auto__container {
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    &.big {
+      font-size: 32px;
+    }
+  }
+  h3 {
+    font-size: 32px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  .quote {
+    padding: 20px 20px 28px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    &Profile {
+      &__avatar {
+        width: 52px;
+        height: 52px;
+        margin-right: 26px;
+      }
+    }
+    &Content {
+      width: 100%;
+      max-width: unset;
+      order: -1;
+      margin-bottom: 24px;
+    }
+  }
+  .video {
+    &__play {
+      span {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 16px;
+      }
+      h4 {
+        margin-bottom: 4px;
+      }
+    }
+  }
+  @include nav-sm-md;
+  @include hero-sm-md;
+  @include count-sm-md;
+  @include features-sm-md;
+  @include support-sm-md;
+  @include join-sm-md;
+
+  // features
+  @include manage-sm-md;
+  @include field-sm-md;
+}
+// 650px
+@include sm-md-extra {
+  .video {
+    &__play {
+      span {
+        width: 70px;
+        height: 70px;
+      }
+      h4 {
+        font-size: 16px;
+        line-height: 18px;
+      }
+    }
+  }
+  @include hero-sm-md-extra;
+  @include footer-sm-md-extra;
+
+  // features
+  @include resource-sm-md-extra;
+}
+// 540px
+@include xsm-sm {
+  h2 {
+    font-size: 22px;
+  }
+  .input {
+    margin-bottom: 8px;
+    width: 100%;
+    max-width: unset;
+    &Form {
+      flex-direction: column;
+      .button {
+        margin: 0;
+        padding: 10px 16px;
+      }
+    }
+  }
+  .video {
+    border-radius: 8px;
+    &__bg {
+      width: 135%;
+    }
+    &__play {
+      span {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 12px;
+      }
+    }
+  }
+  @include hero-xsm-sm;
+  @include banner-xsm-sm;
+
+  // pricing
+  @include plan-xsm-sm;
+  @include pricing-xsm-sm;
+  @include campaign-xsm-sm;
+
+  // features
+  @include service-xsm-sm;
+  @include manage-xsm-sm;
+  @include field-xsm-sm;
+  @include resource-xsm-sm;
+}
+// 440px
+@include xxsm-xsm {
+  .cd-words-wrapper {
+    width: 100% !important;
+  }
+  // @include hero-xxsm-xsm;
+}
+// 380px
+@include xxxsm-xxsm {
+  h1 {
+    font-size: 28px;
+  }
+  @include hero-xxxsm-xxsm;
+}
